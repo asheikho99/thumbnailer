@@ -4,8 +4,8 @@ import { Inter } from "next/font/google";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "YouTube Thumbnail Downloader",
-  description: "Get YouTube video thumbnail via URL",
+  title: "title",
+  description: "description",
 };
 
 export default function RootLayout({
