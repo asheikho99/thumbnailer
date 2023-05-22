@@ -11,16 +11,18 @@ export interface ThumbnailData {
   height: number;
 }
 
-const ThumbnailList = ({ thumbnail }: { thumbnail: Thumbnail }) => {
+export const thumbnails: ThumbnailData[] = [];
+
+const ThumbnailList = () => {
   return (
     <>
-      {Object.entries(thumbnail).map(([key, { url, width, height }]) => (
+      {thumbnails.map((thumbnail) => (
         <Image
-          key={key}
-          alt={key}
-          src={url}
-          width={width}
-          height={height}
+          key={''}
+          alt=""
+          src={thumbnail.url}
+          width={thumbnail.width}
+          height={thumbnail.height}
         />
       ))}
     </>
