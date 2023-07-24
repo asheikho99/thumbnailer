@@ -14,7 +14,7 @@ export default async function RootPage({ params, searchParams }: { params: strin
   }
 
   return (
-    <main className="p-4">
+    <main className="min-h-full p-4">
       <SearchBar />
       {videoThumbnails &&
         Object.entries(videoThumbnails).map((thumbnail) => {
