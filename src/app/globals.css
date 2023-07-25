@@ -76,3 +76,8 @@
     @apply bg-background text-foreground;
   }
 }
+
+body {
+  /* mobile viewport bug fix */
+  min-height: -webkit-fill-available;
+}
