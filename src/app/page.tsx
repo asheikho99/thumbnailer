@@ -12,11 +12,22 @@ export default async function RootPage({
   let videoThumbnails;
 
   if (search) {
-    const res = await fetch(
-      `https://www.googleapis.com/youtube/v3/videos?key=${process.env.API_KEY}&part=snippet&id=${search}`,
-    );
-    const videoData: VideosList = await res.json();
-    videoThumbnails = videoData.items[0].snippet.thumbnails;
+    try {
+      const res = await fetch(
+        `https://www.googleapis.com/youtube/v3/videos?key=${process.env.API_KEY}&part=snippet&id=${search}`,
+      );
+
+      if (!res.ok) throw new Error(`HTTP error! status: ${res.status}`);
+
+      const videoData: VideosList = await res.json();
+      const items = videoData.items;
+
+      if (items.length == 0) throw new Error("INVALID VIDEO ID");
+
+      videoThumbnails = videoData.items[0].snippet.thumbnails;
+    } catch (error) {
+      console.error(error);
+    }
   }
 
   return (
