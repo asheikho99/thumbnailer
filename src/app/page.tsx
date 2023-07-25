@@ -26,12 +26,11 @@ export default async function RootPage({
         {videoThumbnails &&
           Object.entries(videoThumbnails).map((thumbnail) => {
             const title = thumbnail[0];
-            const data = thumbnail[1];
+            const data: Thumbnail = thumbnail[1];
             return (
               <Thumbnail
                 key={title}
-                title={title}
-                alt={data.alt}
+                alt={title}
                 src={data.url}
                 height={data.height}
                 width={data.width}

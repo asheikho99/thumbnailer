@@ -3,14 +3,12 @@ import Image from "next/image";
 
 const Thumbnail = ({
   key,
-  title,
   alt,
   src,
   width,
   height,
 }: {
   key: string;
-  title: string;
   alt: string;
   src: string;
   width: number;
@@ -18,8 +16,8 @@ const Thumbnail = ({
 }) => {
   return (
     <Image
-      key={title}
-        alt={`picture of video's ${alt} thumbnail`}
+      key={key}
+      alt={`picture of video's ${alt} thumbnail`}
       src={src}
       width={width}
       height={height}
