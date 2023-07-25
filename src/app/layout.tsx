@@ -6,8 +6,8 @@ import Navbar from "@/components/Navbar";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata = {
-  title: "title",
-  description: "description",
+  title: "Thumbnailer",
+  description: "Get YouTube video's thumbnails using the video id ",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
