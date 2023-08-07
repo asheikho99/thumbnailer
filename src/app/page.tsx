@@ -1,4 +1,3 @@
-
 import SearchBar from "@/components/search-bar";
 import Thumbnail from "@/components/thumbnail";
 
@@ -32,8 +31,8 @@ export default async function RootPage({
   }
 
   return (
-    <main className="flex min-h-full flex-col">
-      <div className="container space-y-4">
+    <main className="flex min-h-full flex-col py-6">
+      <div className="container mx-auto max-w-5xl space-y-4">
         <SearchBar />
         {videoThumbnails &&
           Object.entries(videoThumbnails).map((thumbnail) => {
