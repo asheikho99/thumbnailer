@@ -1,3 +1,4 @@
+
 import SearchBar from "@/components/search-bar";
 import Thumbnail from "@/components/thumbnail";
 
@@ -36,17 +37,9 @@ export default async function RootPage({
         <SearchBar />
         {videoThumbnails &&
           Object.entries(videoThumbnails).map((thumbnail) => {
-            const title = thumbnail[0];
+            const title: string = thumbnail[0];
             const data: Thumbnail = thumbnail[1];
-            return (
-              <Thumbnail
-                key={title}
-                alt={title}
-                src={data.url}
-                height={data.height}
-                width={data.width}
-              />
-            );
+            return <Thumbnail data={data} title={title} key={title} />;
           })}
       </div>
     </main>

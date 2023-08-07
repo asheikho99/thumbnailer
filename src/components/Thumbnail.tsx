@@ -1,27 +1,18 @@
 import React from "react";
-import Image from "next/image";
+import ThumbnailImage from "./thumbnail-image";
+import Title from "./title";
 
-const Thumbnail = ({
-  key,
-  alt,
-  src,
-  width,
-  height,
-}: {
-  key: string;
-  alt: string;
-  src: string;
-  width: number;
-  height: number;
-}) => {
+const Thumbnail = ({ title, data }: { title: string; data: Thumbnail }) => {
   return (
-    <Image
-      key={key}
-      alt={`picture of video's ${alt} thumbnail`}
-      src={src}
-      width={width}
-      height={height}
-    />
+    <div className="flex flex-col space-y-2">
+      <ThumbnailImage
+        src={data.url}
+        width={data.width}
+        height={data.height}
+        alt={title}
+      />
+      <Title title={title} width={data.width} height={data.height} />
+    </div>
   );
 };
 
