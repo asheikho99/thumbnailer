@@ -1,5 +1,5 @@
-import SearchBar from "@/components/search-bar";
 import Thumbnail from "@/components/thumbnail";
+import SearchBar from "@/components/search-bar";
 
 export default async function RootPage({
   params,
