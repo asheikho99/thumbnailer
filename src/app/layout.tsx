@@ -2,6 +2,7 @@ import "./globals.css";
 import { Inter } from "next/font/google";
 import Footer from "@/components/site-footer";
 import Navbar from "@/components/site-navbar";
+import NextThemeProvider from "@/components/next-theme-provider";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,9 +19,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${inter.className} flex min-h-screen flex-col`}>
-        <Navbar />
-        {children}
-        <Footer />
+        <NextThemeProvider
+          attribute="class"
+          defaultTheme="dark"
+          enableSystem={true}
+        >
+          <Navbar />
+          {children}
+          <Footer />
+        </NextThemeProvider>
       </body>
     </html>
   );
