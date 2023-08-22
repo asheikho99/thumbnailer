@@ -1,10 +1,10 @@
 import React from "react";
 import ThumbnailImage from "./thumbnail-image";
-import Title from "./title";
+import Title from "../title";
 
 const Thumbnail = ({ title, data }: { title: string; data: Thumbnail }) => {
   return (
-    <div className="flex flex-col space-y-2">
+    <div className="flex flex-col space-y-2 justify-center items-center">
       <ThumbnailImage
         src={data.url}
         width={data.width}

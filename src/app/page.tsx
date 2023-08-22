@@ -1,5 +1,5 @@
-import Thumbnail from "@/components/thumbnail";
 import SearchBar from "@/components/search-bar";
+import Thumbnail from "@/components/thumbnail/thumbnail";
 
 export default async function RootPage({
   params,
@@ -35,7 +35,7 @@ export default async function RootPage({
       <div className="container mx-auto max-w-5xl space-y-4">
         <SearchBar />
         {videoThumbnails &&
-          Object.entries(videoThumbnails).map((thumbnail) => {
+          Object.entries(videoThumbnails).reverse().map((thumbnail) => {
             const title: string = thumbnail[0];
             const data: Thumbnail = thumbnail[1];
             return <Thumbnail data={data} title={title} key={title} />;
