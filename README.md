@@ -9,7 +9,7 @@ The Thumbnailer uses [YouTube v3 APIs](https://developers.google.com/youtube/v3)
 
 ## Usage
 
-Simply visit [Thumbnailer](https://thumbnailer-two.vercel.app) and paste video ID in input field.
+Simply visit [Thumbnailer](https://thumbnailer.asheikho.dev) and paste video ID in input field.
 
 ## Development
 
