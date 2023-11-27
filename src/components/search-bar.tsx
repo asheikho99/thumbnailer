@@ -21,14 +21,17 @@ import { Search } from "lucide-react";
 const SearchBar = () => {
   const router = useRouter();
 
+  const urlRegex = /(?:https?:\/\/)?(?:www\.)?(?:youtube\.com\/(?:[^\/\n\s]+\/\S+\/|(?:v|e(?:mbed)?)\/|\S*?[?&]v=)|youtu\.be\/)([a-zA-Z0-9_-]{11})/;
+
   const formSchema = z.object({
     videoId: z
       .string()
-      .min(11, {
-        message: "Video ID must be 11 characters.",
+      .refine((val) => urlRegex.test(val), {
+        message: "Please enter a valid video URL.",
       })
-      .max(11, {
-        message: "Video ID must be no more than 11 characters.",
+      .transform((val) => {
+        const match = val.match(urlRegex);
+        return match ? match[1] : '';
       }),
   });
 
@@ -53,14 +56,14 @@ const SearchBar = () => {
             <FormItem>
               <FormControl>
                 <div className="flex flex-row space-x-2">
-                  <Input {...field} placeholder="Enter the video id" />
+                  <Input {...field} placeholder="Enter the video URL" />
                   <Button type="submit">
                     <Search />
                   </Button>
                 </div>
               </FormControl>
               <FormDescription>
-                This can be found at the end of the video URL.
+                Enter the full video URL.
               </FormDescription>
               <FormMessage />
             </FormItem>
